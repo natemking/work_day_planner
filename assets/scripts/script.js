@@ -42,7 +42,7 @@ $(document).ready(function () {
         }
         //Adds design elements to the bottom of the page
         $('#5pm-block').after('<hr>');
-        $('.container').after('<footer>');
+        // $('.container').after('<footer>');
 
     }
     //Call function to style the page

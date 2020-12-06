@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -38,33 +39,41 @@
       <p id="current-day" class="lead"></p>
     </header>
 
-    <!-- Clear schedule button -->
-    <section class="text-center p-3">
-      <button id="clear-btn" class="btn btn-secondary btn-sm" type="button">Clear Schedule</button>
-    </section>
+    <!-- Main -->
+    <main>
+      <!-- Clear schedule button -->
+      <section class="text-center p-3">
+        <button id="clear-btn" class="btn btn-secondary btn-sm" type="button">Clear Schedule</button>
+      </section>
 
-    <!-- Schedule Container -->
-    <section class="container mb-4 px-0">
-      <!-- Hour Block Template -->
-      <section class="input-group input-group-lg time-block row block-template">
-        <!-- Hour -->
-        <section class="input-group-prepend">
-          <span class="input-group-text hour"><p class='mt-1 mr-1 hour-text'></p></span>
-        </section>
-        <!-- Textarea -->
-        <textarea type="text" class="form-control user-input"></textarea>
-        <!-- Save button -->
-        <section class="input-group-append">
-          <button class="btn btn-outline-secondary save-btn" type="button"><i class="fas fa-lg fa-save  mx-3 no-click" aria-hidden="true"></i></button>
+      <!-- Schedule Container -->
+      <section class="container mb-4 px-0">
+        <!-- Hour Block Template -->
+        <section class="input-group input-group-lg time-block row block-template">
+          <!-- Hour -->
+          <section class="input-group-prepend">
+            <span class="input-group-text hour"><p class='mt-1 mr-1 hour-text'></p></span>
+          </section>
+          <!-- Textarea -->
+          <textarea type="text" class="form-control user-input"></textarea>
+          <!-- Save button -->
+          <section class="input-group-append">
+            <button class="btn btn-outline-secondary save-btn" type="button"><i class="fas fa-lg fa-save  mx-3 no-click" aria-hidden="true"></i></button>
+          </section>
         </section>
       </section>
-    </section>
 
+    </main>
+
+    <footer></footer>
+
+    <!-- JavaScript -->
     <!-- jQuery library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- Day JS library  -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.9.7/dayjs.min.js" integrity="sha512-kZ+x2gdehn6OZMWZSp3Vt5R+v9hQTYEATQwaUfWquhxbvNVAy6IRtYs7asdyxKUTqG0I5ZqBqnzcBrpnHJCAGw==" crossorigin="anonymous"></script>
     <!-- Local JS -->
     <script src="./assets/scripts/script.js"></script>
+
   </body>
 </html>

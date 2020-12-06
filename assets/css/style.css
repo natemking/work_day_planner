@@ -1,3 +1,5 @@
+/*---------------------------*/
+/* Global */
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
@@ -15,6 +17,8 @@ textarea{
 }
 
 
+/*---------------------------*/
+/* Header */
 .display-3 {
   font-size: calc(1.2em + 3vw);
   font-family: 'Bungee Outline', cursive;
@@ -34,6 +38,9 @@ textarea{
   white-space: pre-wrap;
 }
 
+
+/*---------------------------*/
+/* Main */
 .block-template {
   display:none;
 }
@@ -115,6 +122,9 @@ textarea{
   border-top: dashed 1px;
 }
 
+
+/*---------------------------*/
+/* Footer */
 footer {
   margin-bottom: 10px;
   height: 10px;
