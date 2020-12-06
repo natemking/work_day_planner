@@ -89,6 +89,13 @@ $(document).ready(function () {
         }
         $(`#${timesArr[i]}-input`).text(getEvents[timesArr[i]]);
 
+        $(`#${timesArr[i]}-btn`).mousedown(function(){
+            $(`#${timesArr[i]}-save-icon`).removeClass('no-click').addClass('click');
+        })
+        $(`#${timesArr[i]}-btn`).mouseup(function(){
+            $(`#${timesArr[i]}-save-icon`).removeClass('click').addClass('no-click');
+        })
+
         $(`#${timesArr[i]}-btn`).click(function(){
             if(this.id === `${timesArr[i]}-btn`){
                 savedEvents[`${timesArr[i]}`] = $(`#${timesArr[i]}-input`).val();
@@ -110,9 +117,7 @@ $(document).ready(function () {
         localStorage.clear();
         location.reload();
     });
-  
 
-    console.log(dayjs().format('H:mm:ss'));
 });
 
 
