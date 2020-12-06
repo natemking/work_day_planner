@@ -85,6 +85,8 @@ _mobile score screen_
 
 * [Add and Remove classes](https://stackoverflow.com/questions/7002039/easiest-way-to-toggle-2-classes-in-jquery)
 
+* [For/Of loop to create an object from an array](https://stackoverflow.com/questions/42974735/create-object-from-array)
+
 * [Getting multiple values to local storage](https://stackoverflow.com/questions/19635077/adding-objects-to-array-in-localstorage)
 
 * [Cleaner set timeout code than ive used in the past](https://www.sitepoint.com/javascript-settimeout-function-examples/)
