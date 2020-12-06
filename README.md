@@ -79,11 +79,11 @@ _mobile score screen_
 
 ## Credits
 <!-- 
-* [JS Logo](https://www.vhv.rs/somore/javascript-logo)
+* [Cloning multiple elements to the DOM with a for loop](https://stackoverflow.com/questions/29837552/jquery-appending-multiple-cloned-dom-objects-using-a-for-loop)
 
-* [Better responsive typography](https://css-tricks.com/fun-viewport-units/)
+* [Set dynamic time with Moment.js](https://stackoverflow.com/questions/10590461/dynamic-date-and-time-with-moment-js-and-setinterval)
 
-* [Security differences between innerHTML and textContent](https://stackoverflow.com/questions/48517469/security-innerhtml-vs-textcontent-with-api)
+* [Add and Remove classes](https://stackoverflow.com/questions/7002039/easiest-way-to-toggle-2-classes-in-jquery)
 
 * [Getting multiple values to local storage](https://stackoverflow.com/questions/19635077/adding-objects-to-array-in-localstorage)
 
