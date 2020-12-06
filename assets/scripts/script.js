@@ -1,20 +1,23 @@
 $(document).ready(function () {
 
     //*** Global Variables ***//
-    //------------------//
+    //------------------------//
+
     const timesArr = ['9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm'];
     const euroTimesArr = [9, 10, 11, 12, 13, 14, 15, 16, 17];
    
     
+    //*** Create and append elements to the DOM ***//
+    //---------------------------------------------//
 
-    //clones the time block tmeplate and append to the DOM for the hours in the timesArr
+    //Clones the time block template and appends them to the DOM. One for each index of timesArr
     const timeBlocks = () => {
-        //variable to clone the time-block template
+        //Variable to clone the time-block template
         const $clone = $('.block-template').clone();
 
-        //for loop that iterates through the timesArr for block creation
+        //For loop that iterates through the timesArr for block creation
         for (let i = 0; i < timesArr.length; i++) {
-            //variable to create a clone of the clone so each block gets created
+            //Variable to create a clone of the clone so each block gets created
             const $copy = $clone.clone();
             //Time blocks - makes the clones visible & adds ids
             $copy.css('display', 'flex')
@@ -34,26 +37,31 @@ $(document).ready(function () {
             });
             //FA icon - creates ids
             $('.fa-save', $copy).attr('id', `${timesArr[i]}-save-icon`);
-            //Appends all to the container
+            //Appends all of the above elements to the container
             $($copy).appendTo('.container');
-
         }
         //Adds design elements to the bottom of the page
-        $('#5pm-block').after('<hr>')
-        $('.container').after('<footer>')
+        $('#5pm-block').after('<hr>');
+        $('.container').after('<footer>');
 
     }
+    //Call function to style the page
     timeBlocks();
 
-    //Display current day/time and compares that time to color time block accordingly
+
+    //*** Time functionality ***//
+    //--------------------------//
+
     const displayDateTime = () => {
+        //Display current day/time and write to header
         let now = dayjs().format('ddd MMM D YYYY h:mm:ss a');
         $('#current-day').html(now);
         setTimeout(function () {displayDateTime(); }, 1000);
 
-        //variable to convert time to integer for comparison to the euroTimesArr indexes
-        let timeToInt = parseInt(dayjs().format('H'))
-        // For loop to compare the current time w/ the 24 hour clock times in euroTimesArr
+        //DOM manipulation by time of day
+        //Variable to convert time to integer for comparison to the euroTimesArr indexes
+        let timeToInt = parseInt(dayjs().format('H'));
+        // For loop to compare the current time w/ the 24 hour clock times in euroTimesArr and change the time block color accordingly
         for (let i = 0; i < euroTimesArr.length; i++) {
             if (timeToInt === euroTimesArr[i]){
                 $(`#${timesArr[i]}-input`).removeClass('past future').addClass('present');
@@ -61,10 +69,9 @@ $(document).ready(function () {
                 $(`#${timesArr[i]}-input`).removeClass('present future').addClass('past');
             }else if (timeToInt < euroTimesArr[i]){
                 $(`#${timesArr[i]}-input`).removeClass('present past').addClass('future');
-            }
-            
+            }  
         }
-        
+
         //Clear schedule and reload at midnight
         let midnightCheck = dayjs().format('H:mm:ss').localeCompare('0:00:00');
         if (midnightCheck === 0){
@@ -72,38 +79,38 @@ $(document).ready(function () {
             location.reload();
         }; 
     } 
+    //Call function to activate time functionality 
     displayDateTime();
 
-    //Local storage for event items
-    //Storage Object
+    //*** Local storage and DOM manipulation via event listeners ***//
+    //--------------------------------------------------------------//
 
-
-
-    
-    //Sets local storage of saved events
+    //For loop to iterate through timesArr 
     for (let i = 0; i < timesArr.length; i++) {
-
-        let getEvents = JSON.parse(localStorage.getItem('saved-events'))
+        //Get local storage
+        let getEvents = JSON.parse(localStorage.getItem('saved-events'));
         if (getEvents === null){
             getEvents = [];
         }
+        //Write whats in local storage to its respective input element
         $(`#${timesArr[i]}-input`).text(getEvents[timesArr[i]]);
-
-        $(`#${timesArr[i]}-btn`).mousedown(function(){
-            $(`#${timesArr[i]}-save-icon`).removeClass('no-click').addClass('click');
-        })
-        $(`#${timesArr[i]}-btn`).mouseup(function(){
-            $(`#${timesArr[i]}-save-icon`).removeClass('click').addClass('no-click');
-        })
-
+        
+        //Event listener for clicking the save button and save the text in the user input field to local storage
         $(`#${timesArr[i]}-btn`).click(function(){
             if(this.id === `${timesArr[i]}-btn`){
                 savedEvents[`${timesArr[i]}`] = $(`#${timesArr[i]}-input`).val();
-
+                //Save savedEvents obj to local storage
                 localStorage.setItem('saved-events', JSON.stringify(savedEvents));
-                
             } 
-        })
+        });
+
+         //Event listeners to change the icon class on mouseup/down
+         $(`#${timesArr[i]}-btn`).mousedown(function(){
+            $(`#${timesArr[i]}-save-icon`).removeClass('no-click').addClass('click');
+        });
+        $(`#${timesArr[i]}-btn`).mouseup(function(){
+            $(`#${timesArr[i]}-save-icon`).removeClass('click').addClass('no-click');
+        });
     }   
     
     //Object for local storage 
@@ -117,7 +124,6 @@ $(document).ready(function () {
         localStorage.clear();
         location.reload();
     });
-
 });
 
 
