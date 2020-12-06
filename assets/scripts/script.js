@@ -32,10 +32,11 @@ $(document).ready(function () {
             });
             //FA icon - creates ids
             $('.fa-save', $copy).attr('id', `${timesArr[i]}-save-icon`);
-            //Appends all to the contaiiner
+            //Appends all to the container
             $($copy).appendTo('.container');
 
         }
+        //Adds design elements to the bottom of the page
         $('#5pm-block').after('<hr>')
         $('.container').after('<footer>')
 
@@ -43,14 +44,14 @@ $(document).ready(function () {
 
     timeBlocks();
 
-    //Display current day & time
+    //Display current day/time and compares that time to color time block accordingly
     const displayDateTime = () => {
-        let now = moment().format('dddd MMMM Do YYYY hh:mm:ss a');
+        let now = dayjs().format('ddd MMM D YYYY h:mm:ss a');
         $('#current-day').html(now);
         setTimeout(function () {displayDateTime(); }, 1000);
 
         //variable to convert time to integer for comparison
-        let timeToInt = parseInt(moment().format('H'))
+        let timeToInt = parseInt(dayjs().format('H'))
 
         // For loop to compare the current time w/ the 24 hour clock times in euroTimesArr
         for (let i = 0; i < euroTimesArr.length; i++) {
