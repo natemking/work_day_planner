@@ -14,13 +14,21 @@ Homework #05 - 05 Third-Party APIs: Work Day Scheduler
 ## Description
 ---
 ### Scope of Work
-The client request was a simple daily planner broken down into buisness hours. The functionality requested was that the current day/time be displayed live in the header, the abialy to save the hourly planned event, color coding 
+The client has requested a simple day planner broken down into business hours. The functionality requested was that the current day/time be displayed live in the header, the ability to save the hourly planned event, color coding that is dynamic depending on what time of day it is, and the ability to save their entries. 
 
 ### HTML and CSS
+The initial work came with pre-coded HTML and CSS. The HTML included a pre-built header, a container for the planner time blocks, and CDNs to BootStrap, FontAwesome, jQuery, & Moment.JS libraries. The CSS has pre-built classes outside of the typical BootStrap options. At first, I had started to build the time blocks in HTML but decided to take a more dynamic approach and use JavaScript to have these blocks created as the page loads. More on that in [Javascript functionality](#javascript-functionality). Aside from adding a time block template, a main, a footer (used for design purposes only), and updating the semantics not much of the HTML was altered. 
 
+After, sucessfully completeing the JavaScript coding, I decided to take a more creative route and change up the look of the provided page with CSS. I achevied this with, not only, adding my own CSS but with altering the default BootStrap and the pre-built styles the client provided.    
 
 ### JavaScript Functionality
+As stated above, the first major decision I made in the app was to have the time blocks created dynamiccly at page load. After creating the template and making it `display: none;`, I constructed an array of all the times named `timesArr` that would be in the calendar. I wrote a for loop which uses jQuery's `.clone()` method to create a clone of the template for each of the hours as specified in the `timesArr`. While still in the loop, attributes are added to specific elements before appending to the container. The advantage to chosing this route allows for easier mutability of the time block container. If the client wanted to add more time bloks outsinde of the nine to five range, it would be as simple as adding those slots to the times array. 
 
+Next, I tackled the live time keeping. I chose to forgo the pre-coded Moment.js library for Day.js. As of September 2020, Moment.js is no longer being suppoted. Between that and the fact that the moment object is mutable led me to chose Day.js. I wanted to future proof my code as best as possible. It was not a hard decsion as Day.js' syntax is very similar to Moment.js'. I used the Day.js library and jQuery to create a live, dynamic date and time in the header. The next challange was to have the time blocks change color depending if they were past, present, or future. I had to initialize with a for loop again to iterate through the `timesArr`. Inside the for loop, I created an if-else statment to comapre the current hour with the time block hour and change the class as a result. I ran into an issue here with the output of the current time from Day.js and my times array being strings. I running into an issue where the results were not coming out as intended. Also, the times array is not in twety-four hour time which leads to major issues with the comparison operators.  To solve this I created a new array that is made up of numbers only and in twenty-four hour time called `euroTimesArr`. I then convert the output from Day.js to an integer and comapre it to my array changing the time block classes accrding to where they are in the day. 
+
+Local stroage is the next function to run. Again a for loop is intilized to iterate through the `timesArr`. I created a variable that gets the saved items from local storage then the data that is received is written to its corresponding time block if there is previously stored data. Next, a click event listener calls an if statement that says if there is any value in the time blok inputs, write it into the storage `savedEvents` storage object and set that object to local storage. While still in the for loop I added two more event listeners that listen for enter-keydown/mousedown and enter-keyup/mouseup respectivly. When the former is activated the FontAwsome icon changes a class and reverts when the latter is actaivated. This gives the user visual feedback that their entry has completed. 
+
+This is all the client requested but I added a couple more features. First I added a button to the top of the Main that allows the user to clear their schedule by clearing local storage and refreshing the page on click. Second, I added to the time function an if statement that automatticly  
 ---
 
 ## Screenshots
@@ -94,3 +102,4 @@ _mobile score screen_
 
 * [Create a button to clear local storage](https://stackoverflow.com/questions/30816119/how-do-i-clear-localstorage-with-a-button)
 
+* [Event listener for both 'click' & 'keydown'](https://stackoverflow.com/questions/9146651/trigger-an-event-on-click-and-enter)

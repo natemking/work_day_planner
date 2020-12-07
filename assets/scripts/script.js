@@ -52,11 +52,11 @@ $(document).ready(function () {
     //*** Time functionality ***//
     //--------------------------//
 
-    const displayDateTime = () => {
+    const dateTime = () => {
         //Display current day/time and write to header
         let now = dayjs().format('ddd MMM D YYYY h:mm:ss a');
         $('#current-day').html(now);
-        setTimeout(function () {displayDateTime(); }, 1000);
+        setTimeout(function () {dateTime(); }, 1000);
 
         //DOM manipulation by time of day
         //Variable to convert time to integer for comparison to the euroTimesArr indexes
@@ -72,58 +72,72 @@ $(document).ready(function () {
             }  
         }
 
-        //Clear schedule and reload at midnight
-        let midnightCheck = dayjs().format('H:mm:ss').localeCompare('0:00:00');
-        if (midnightCheck === 0){
-            localStorage.clear();
-            location.reload();
-        }; 
+        //Function to check date & if data was from previous day, clear local stor & refresh
+        //variable to format date as a number
+        let date = parseInt(dayjs().format('YYYYMMDD'));
+        const checkDate = () => {
+            //gets last stored date integer from local stor
+            let day = JSON.parse(localStorage.getItem('date'));
+            if (day === null){
+                day = [];
+            }
+            //if lasted stored date < current date clear local stor & refresh. First if is to top 2 reloads from happening when the clear schedule button is clicked by the user
+            if (day === date || day === []){}
+            else if (day < date){
+                localStorage.clear();
+                location.reload();
+            }
+            //Set current date to local stor
+            localStorage.setItem('date', date);
+        }
+        //Call function to check date
+        checkDate();
     } 
     //Call function to activate time functionality 
-    displayDateTime();
+    dateTime();
 
-    //*** Local storage and DOM manipulation via event listeners ***//
+    //*** Local stor and DOM manipulation via event listeners ***//
     //--------------------------------------------------------------//
 
     //For loop to iterate through timesArr 
     for (let i = 0; i < timesArr.length; i++) {
-        //Get local storage
+        //Get local stor of savedEvents
         let getEvents = JSON.parse(localStorage.getItem('saved-events'));
         if (getEvents === null){
             getEvents = [];
         }
-        //Write whats in local storage to its respective input element
+        //Write whats in local stor to its respective input element
         $(`#${timesArr[i]}-input`).text(getEvents[timesArr[i]]);
         
-        //Event listener for clicking the save button and save the text in the user input field to local storage
+        //Event listener for clicking the save button and save the text in the user input field to local stor
         $(`#${timesArr[i]}-btn`).on('click', function(){
             if(this.id === `${timesArr[i]}-btn`){
                 savedEvents[`${timesArr[i]}`] = $(`#${timesArr[i]}-input`).val();
-                //Save savedEvents obj to local storage
+                //Save savedEvents obj to local stor
                 localStorage.setItem('saved-events', JSON.stringify(savedEvents));
             } 
         });
 
          //Event listeners to change the icon class on enter key down/up & mouse down/up
-         $(`#${timesArr[i]}-btn`).on('mousedown keydown',function(e){
+         $(`#${timesArr[i]}-btn`).on('keydown mousedown',function(e){
              if (e.which === 13 || e.type === 'mousedown'){
                 $(`#${timesArr[i]}-save-icon`).removeClass('no-click').addClass('click');
              }
         });
-        $(`#${timesArr[i]}-btn`).on('mouseup keyup',function(e){
-            if (e.which === 13 || e.type === 'mousedown'){
+        $(`#${timesArr[i]}-btn`).on('keyup mouseup',function(e){
+            if (e.which === 13 || e.type === 'mouseup'){
                 $(`#${timesArr[i]}-save-icon`).removeClass('click').addClass('no-click');
             }
         });
     }   
     
-    //Object for local storage 
+    //Object for local stor
     const savedEvents = {};
     for (const key of timesArr){
          savedEvents[key] = $(`#${key}-input`).val();
     }
     
-    //Click Clear button to erase local storage and refresh page
+    //Click Clear button to erase local stor and refresh page
     $('#clear-btn').click(() => {
         localStorage.clear();
         location.reload();
