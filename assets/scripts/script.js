@@ -40,10 +40,6 @@ $(document).ready(function () {
             //Appends all of the above elements to the container
             $($copy).appendTo('.container');
         }
-        //Adds design elements to the bottom of the page
-        $('#5pm-block').after('<hr>');
-        // $('.container').after('<footer>');
-
     }
     //Call function to style the page
     timeBlocks();
@@ -55,7 +51,7 @@ $(document).ready(function () {
     const dateTime = () => {
         //Display current day/time and write to header
         let now = dayjs().format('ddd MMM D YYYY h:mm:ss a');
-        $('#current-day').html(now);
+        $('#current-day').text(now);
         setTimeout(function () {dateTime(); }, 1000);
 
         //DOM manipulation by time of day
