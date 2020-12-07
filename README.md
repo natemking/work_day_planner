@@ -19,7 +19,7 @@ The client has requested a simple day planner broken down into business hours. T
 ### HTML and CSS
 The initial work came with pre-coded HTML and CSS. The HTML included a pre-built header, a container for the planner time blocks, and CDNs to BootStrap, FontAwesome, jQuery, & Moment.JS libraries. The CSS has pre-built classes outside of the typical BootStrap options. At first, I had started to build the time blocks in HTML but decided to take a more dynamic approach and use JavaScript to have these blocks created as the page loads. More on that in [JavaScript functionality](#JavaScript-functionality). Aside from adding a time block template, a main, a footer (used for design purposes only), and updating the semantics not much of the HTML was altered. 
 
-After completing the JavaScript coding, I decided to take a more creative route and change up the look of the provided page with CSS. I achieved this by, not only, adding my own CSS but by altering the default BootStrap and the pre-built styles the client provided.    
+After completing the JavaScript coding, I decided to take a more creative route and change up the look of the provided page with CSS. I achieved this by, not only, adding my own CSS but by altering the default BootStrap and the pre-built styles the client provided. Lastly, I made sure the site was responsive to mobile.    
 
 ### JavaScript Functionality
 As stated above, the first major decision I made in the app was to have the time blocks created dynamically at page load. After creating the template and making it `display: none;`, I constructed an array of all the times named `timesArr` that would be in the calendar. I wrote a for loop which uses jQuery's `.clone()` method to create a clone of the template for each of the hours as specified in the `timesArr`. While still in the loop, attributes are added to specific elements before appending to the container. The advantage of choosing this route allows for easier mutability of the time block container. If the client wanted to add more time blocks outside of the nine to five range, it would be as simple as adding those slots to the `timesArr`. 
@@ -30,7 +30,7 @@ Local storage is the next function to run. Again a for loop is initialized to it
 
 This is all the client requested but I added a couple more features. First I added a button to the top of the Main that allows the user to clear their schedule by clearing local storage and refreshing the page on click. Second, I added to the `dateTime()` function a nested function that gets the last stored date the planner was used from local storage and compared it to today's date. If the last stored date is in the past, the local storage is cleared and the current date is then stored. This feature adds simplicity to the user experience.
 
-
+<iframe src="https://drive.google.com/file/d/1vWkz-4GJcYsN9shCm_ehpetr1qm3KJju/preview" width="640" height="480"></iframe>
 ---
 
 ## Screenshots
@@ -39,7 +39,7 @@ This is all the client requested but I added a couple more features. First I add
 <summary><strong>Large screens:</strong></summary>
 <br>
 
-![desktop start screen](./assets/images/screenshots/desktop-start-screen.jpg?raw=true)
+![desktop start screen](<iframe src="https://drive.google.com/file/d/1vWkz-4GJcYsN9shCm_ehpetr1qm3KJju/preview" width="640" height="480"></iframe>)
 <br>
 _desktop start screen_
 <br>
