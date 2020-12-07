@@ -96,7 +96,7 @@ $(document).ready(function () {
         $(`#${timesArr[i]}-input`).text(getEvents[timesArr[i]]);
         
         //Event listener for clicking the save button and save the text in the user input field to local storage
-        $(`#${timesArr[i]}-btn`).click(function(){
+        $(`#${timesArr[i]}-btn`).on('click', function(){
             if(this.id === `${timesArr[i]}-btn`){
                 savedEvents[`${timesArr[i]}`] = $(`#${timesArr[i]}-input`).val();
                 //Save savedEvents obj to local storage
@@ -104,12 +104,16 @@ $(document).ready(function () {
             } 
         });
 
-         //Event listeners to change the icon class on mouseup/down
-         $(`#${timesArr[i]}-btn`).mousedown(function(){
-            $(`#${timesArr[i]}-save-icon`).removeClass('no-click').addClass('click');
+         //Event listeners to change the icon class on enter key down/up & mouse down/up
+         $(`#${timesArr[i]}-btn`).on('mousedown keydown',function(e){
+             if (e.which === 13 || e.type === 'mousedown'){
+                $(`#${timesArr[i]}-save-icon`).removeClass('no-click').addClass('click');
+             }
         });
-        $(`#${timesArr[i]}-btn`).mouseup(function(){
-            $(`#${timesArr[i]}-save-icon`).removeClass('click').addClass('no-click');
+        $(`#${timesArr[i]}-btn`).on('mouseup keyup',function(e){
+            if (e.which === 13 || e.type === 'mousedown'){
+                $(`#${timesArr[i]}-save-icon`).removeClass('click').addClass('no-click');
+            }
         });
     }   
     

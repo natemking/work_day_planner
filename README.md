@@ -14,7 +14,7 @@ Homework #05 - 05 Third-Party APIs: Work Day Scheduler
 ## Description
 ---
 ### Scope of Work
-  
+The client request was a simple daily planner broken down into buisness hours. The functionality requested was that the current day/time be displayed live in the header, the abialy to save the hourly planned event, color coding 
 
 ### HTML and CSS
 
@@ -78,7 +78,10 @@ _mobile score screen_
 ---
 
 ## Credits
-<!-- 
+* [jQuery](https://jquery.com/)
+
+* [day.js](https://day.js.org/)
+
 * [Cloning multiple elements to the DOM with a for loop](https://stackoverflow.com/questions/29837552/jquery-appending-multiple-cloned-dom-objects-using-a-for-loop)
 
 * [Set dynamic time with Moment.js](https://stackoverflow.com/questions/10590461/dynamic-date-and-time-with-moment-js-and-setinterval)
@@ -89,8 +92,5 @@ _mobile score screen_
 
 * [Getting multiple values to local storage](https://stackoverflow.com/questions/19635077/adding-objects-to-array-in-localstorage)
 
-* [Cleaner set timeout code than ive used in the past](https://www.sitepoint.com/javascript-settimeout-function-examples/)
+* [Create a button to clear local storage](https://stackoverflow.com/questions/30816119/how-do-i-clear-localstorage-with-a-button)
 
-* [Using foreach](https://dmitripavlutin.com/foreach-iterate-array-javascript/)
-
-* [Page refresh on click](https://www.w3schools.com/jsref/met_loc_reload.asp) -->
