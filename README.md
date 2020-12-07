@@ -1,5 +1,6 @@
 # Work Day Planner
 Homework #05 - 05 Third-Party APIs: Work Day Scheduler
+http://www.natemking.dev/work_day_planner/
 
 ---
 
@@ -30,66 +31,38 @@ Local storage is the next function to run. Again a for loop is initialized to it
 
 This is all the client requested but I added a couple more features. First I added a button to the top of the Main that allows the user to clear their schedule by clearing local storage and refreshing the page on click. Second, I added to the `dateTime()` function a nested function that gets the last stored date the planner was used from local storage and compared it to today's date. If the last stored date is in the past, the local storage is cleared and the current date is then stored. This feature adds simplicity to the user experience.
 
-<figure class="video_container">
-<iframe src="https://drive.google.com/file/d/1vWkz-4GJcYsN9shCm_ehpetr1qm3KJju/preview" width="640" height="480"></iframe>
-</figure>
 ---
 
 ## Screenshots
-###### click to expand
-<!-- <details>
-<summary><strong>Large screens:</strong></summary>
+
+<summary><strong>Work Day Planner</strong></summary>
 <br>
 
-![desktop start screen](<iframe src="https://drive.google.com/file/d/1vWkz-4GJcYsN9shCm_ehpetr1qm3KJju/preview" width="640" height="480"></iframe>)
+
+![workday planner day add entries](./assets/images/screenshots/work_day_planner_add.gif?raw=true)
 <br>
-_desktop start screen_
+_add entries_
 <br>
 
-![desktop question screen](./assets/images/screenshots/desktop-question-screen.jpg?raw=true)
+![workday planner clear schedule](./assets/images/screenshots/work_day_planner_clear.gif?raw=true)
 <br>
-_desktop question screen_
-<br>
-
-![desktop gameover screen](./assets/images/screenshots/desktop-gameover-screen.jpg?raw=true)
-<br>
-_desktop gameover screen_
+_clear schedule_
 <br>
 
-![desktop score screen](./assets/images/screenshots/desktop-score-screen.jpg?raw=true)
+![workday planner hour change](./assets/images/screenshots/work_day_planner_hour_change.gif?raw=true)
 <br>
-_desktop score screen_
-<br>
-</details>
-
-<details>
-<summary><strong>Mobile screens:</strong></summary>
+_hour change_
 <br>
 
-![mobile start screen](./assets/images/screenshots/mobile-start-screen.jpg?raw=true)
+![workday planner day change](./assets/images/screenshots/work_day_planner_day_change.gif?raw=true)
 <br>
-_mobile start screen_
+_day change_
 <br>
-
-![mobile question screen](./assets/images/screenshots/mobile-question-screen.jpg?raw=true)
-<br>
-_mobile question screen_
-<br>
-
-![mobile gameover screen](./assets/images/screenshots/mobile-gameover-screen.jpg?raw=true)
-<br>
-_mobile gameover screen_
-<br>
-
-![mobile score screen](./assets/images/screenshots/mobile-score-screen.jpg?raw=true)
-<br>
-_mobile score screen_
-<br>
-</details> -->
 
 ---
 
 ## Credits
+
 * [jQuery](https://jquery.com/)
 
 * [day.js](https://day.js.org/)
