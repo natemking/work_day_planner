@@ -19,7 +19,7 @@ http://www.natemking.dev/work_day_planner/
   * [Credits](#credits)
 
 ## Description
----
+
 ### Scope of Work
 The client has requested a simple day planner broken down into business hours. The functionality requested was that the current day/time be displayed live in the header, the ability to save the hourly planned event, color-coding that is dynamic depending on what time of day it is, and the ability to save their entries. 
 
@@ -36,8 +36,6 @@ Next, I tackled the live timekeeping. I chose to forgo the pre-coded Moment.js l
 Local storage is the next function to run. Again a for loop is initialized to iterate through the `timesArr`. I created a variable that gets the saved items from local storage then the data that is received is written to its corresponding time block if there is previously stored data. Next, a click event listener calls an if statement that says if there is any value in the time block inputs, write it into the storage `savedEvents` storage object and set that object to local storage. While still in the for loop I added two more event listeners that listen for enter-keydown/mousedown and enter-keyup/mouseup respectively. When the former is activated the FontAwesome icon changes a class and reverts when the latter is activated. This gives the user visual feedback that their entry has been completed. 
 
 This is all the client requested but I added a couple more features. First I added a button to the top of the Main that allows the user to clear their schedule by clearing local storage and refreshing the page on click. Second, I added to the `dateTime()` function a nested function that gets the last stored date the planner was used from local storage and compared it to today's date. If the last stored date is in the past, the local storage is cleared and the current date is then stored. This feature adds simplicity to the user experience.
-
----
 
 ## Screenshots
 
@@ -65,8 +63,6 @@ _hour change_
 _day change_
 <br>
 
----
-
 ## Credits
 
 * [jQuery](https://jquery.com/)
@@ -86,3 +82,9 @@ _day change_
 * [Create a button to clear local storage](https://stackoverflow.com/questions/30816119/how-do-i-clear-localstorage-with-a-button)
 
 * [Event listener for both 'click' & 'keydown'](https://stackoverflow.com/questions/9146651/trigger-an-event-on-click-and-enter)
+
+---
+
+GitHub: [@natemking](https://github.com/natemking/)
+
+Email: [natmeking@gmail.com](mailto:natmeking@gmail.com)
